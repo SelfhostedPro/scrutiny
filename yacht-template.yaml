@@ -20,3 +20,5 @@ devices:
   container: "/dev/sda"
 - host: "/dev/sdb"
   container: "/dev/sdb"
+cap_add:
+- SYS_RAWIO
