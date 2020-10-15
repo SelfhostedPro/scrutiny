@@ -1,0 +1,22 @@
+  ---
+type: 1
+title: Scrutiny
+name: scrutiny
+description: Scrutiny is a Hard Drive Health Dashboard & Monitoring solution, merging manufacturer provided S.M.A.R.T metrics with real-world failure rates.
+note: If you have NVMe drives, you must add --cap-add SYS_ADMIN as well. Documentation is available <a href='https://github.com/AnalogJ/scrutiny'>here</a>.
+logo: https://raw.githubusercontent.com/AnalogJ/scrutiny/master/webapp/frontend/src/assets/images/logo/scrutiny-logo-dark.png
+image: analogj/scrutiny:latest
+categories:
+- Tools
+platform: linux
+restart_policy: unless-stopped
+ports:
+- webui: 8080:8080/tcp
+volumes:
+- container: "/run/vdev"
+  bind: "/run/vdev"
+devices:
+- host: "/dev/sda"
+  container: "/dev/sda"
+- host: "/dev/sdb"
+  container: "/dev/sdb"
